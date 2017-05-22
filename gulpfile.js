@@ -6,6 +6,7 @@ var uglify      = require('gulp-uglify');
 var cssmin      = require('gulp-cssmin');
 var concat      = require('gulp-concat');
 var htmlReplace = require('gulp-html-replace');
+var browserSync   = require('browser-sync');
 
 gulp.task('clean', function(){
     return gulp.src('dist')
@@ -34,4 +35,14 @@ gulp.task('usemin', function(){
 
 gulp.task('default', ['copy'], function(){
     gulp.start('build-img', 'usemin');
+});
+
+gulp.task('server', function(){
+    browserSync.init({
+        server: {
+            baseDir: 'src'
+        }
+    });
+
+    gulp.watch('src/**/*', browserSync.reload);
 });
