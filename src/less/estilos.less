@@ -1,3 +1,5 @@
+@cor-principal: #dcdcdc;
+
 body {
   color: #333333;
   font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-serif;
@@ -48,7 +50,7 @@ header {
 
 .busca,
 .menu-departamentos {
-  background-color: #dcdcdc;
+  background-color: @cor-principal;
   font-weight: bold;
   text-transform: uppercase;
 
@@ -205,7 +207,7 @@ footer .container {
 }
 
 .menu-departamentos ul li ul li {
-  background-color: #dcdcdc;
+  background-color: @cor-principal;
 }
 
 .menu-departamentos li li a:before {
@@ -323,7 +325,7 @@ footer .container {
   content: '';
   display: block;
   height: 0;
-  width: 0;
+  width: 0
 
   /* triangulo */
   border-top: 10px solid #333;
