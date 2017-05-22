@@ -1,12 +1,16 @@
-var gulp        = require('gulp');
-var imagemin    = require('gulp-imagemin');
-var clean       = require('gulp-clean');
-var usemin      = require('gulp-usemin');
-var uglify      = require('gulp-uglify');
-var cssmin      = require('gulp-cssmin');
-var concat      = require('gulp-concat');
-var htmlReplace = require('gulp-html-replace');
-var browserSync   = require('browser-sync');
+var gulp            = require('gulp');
+var imagemin        = require('gulp-imagemin');
+var clean           = require('gulp-clean');
+var usemin          = require('gulp-usemin');
+var uglify          = require('gulp-uglify');
+var cssmin          = require('gulp-cssmin');
+var concat          = require('gulp-concat');
+var htmlReplace     = require('gulp-html-replace');
+var browserSync     = require('browser-sync');
+var jsHint          = require('gulp-jshint');
+var jshintStylish   = require('jshint-stylish');
+var csslint         = require('gulp-csslint');
+var csslintStylish      = require('csslint-stylish')
 
 gulp.task('clean', function(){
     return gulp.src('dist')
@@ -42,6 +46,18 @@ gulp.task('server', function(){
         server: {
             baseDir: 'src'
         }
+    });
+
+    gulp.watch('src/js/*.js', function(event){
+        gulp.src(event.path)
+        .pipe(jsHint())
+            .pipe(jsHint.reporter(jshintStylish));
+    });
+
+    gulp.watch('src/css/*.css', function(event){
+        gulp.src(event.path)
+        .pipe(csslint())
+            .pipe(csslint.reporter());
     });
 
     gulp.watch('src/**/*', browserSync.reload);
