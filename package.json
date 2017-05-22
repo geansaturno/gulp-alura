@@ -13,6 +13,7 @@
     "browser-sync": "^2.9.8",
     "csslint-stylish": "0.0.6",
     "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.0.2",
     "gulp-clean": "^0.3.1",
     "gulp-concat": "^2.6.1",
     "gulp-csslint": "^0.2.0",
