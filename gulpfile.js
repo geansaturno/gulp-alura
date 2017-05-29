@@ -20,14 +20,14 @@ gulp.task('clean', function(){
 });
 
 gulp.task('copy', ['clean'], function(){
-    return gulp.src('src/**/*')
+    return gulp.src('src/**/*.html')
         .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('build-img', function(){
     gulp.src('src/img/**/*')
         .pipe(imagemin())
-            .pipe(gulp.dest('src/img-min'));
+            .pipe(gulp.dest('src/img'));
 });
 
 gulp.task('usemin', function(){
